@@ -1,0 +1,24 @@
+{
+  // include : 컴파일을 진행할 폴더 지정
+  "include": ["./*"],
+
+  // ./ : 현재 폴더의 모든 파일 지정
+  // /** : 폴더를 지정
+  // /* : 파일을 지정
+
+  // src/**/* : src 폴더 하위 폴더와 폴더안에 모든 파일의 경로 지정
+
+  // exclude : 컴파일 제외 폴더 지정
+  "exclude": ["./node_modules"],
+  // compilerOptions : typeScript 파일을 컴파일 진행시 어떤 옵션 형태로 컴파일을 진행할지 속성을 정의
+  "compilerOptions": {
+    // 컴파일된 파일을 내보낼 경로 지정
+    "outDir": "./dist"
+  }
+}
+
+// package.json에 추가
+// tsc 명령어는 typeScript
+// "scripts" :{
+//   "build" : "tsc"
+// }
