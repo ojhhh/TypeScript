@@ -5,7 +5,6 @@ interface Discount {
 }
 
 // 가격만 수정하는 할인
-// 오버라이딩
 class FlatDiscount implements Discount {
   private amount: number;
   constructor(amount: number) {
