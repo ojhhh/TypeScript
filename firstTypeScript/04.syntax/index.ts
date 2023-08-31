@@ -26,7 +26,7 @@ const undefinedValue: undefined = undefined;
 const obj: object = {};
 // 배열은 안에 들어가는 타입을 지정해 줘야함
 // <> : 제네릭 타입 설정. 배열의 요소를 number로 지정
-const arr: Array<number | string> = [1, 2, 3];
+const arr: Array<number | string> = ["S", 3];
 // 매개변수의 타입을 정해 줘야함
 // void는 생략되어 있음
 // void : 반환값이 없는 함수. 함수 실행시 비어있다는 것을 의미
