@@ -13,9 +13,10 @@ class Strategy {
   private strategy: IStrategy = {};
 
   // 서비스 로직을 객체에 추가할 함수
-  public set(key: string, authentcate: Authenticator) {
+  public set(key: string, authenticate: Authenticator) {
     // key 값을 받고 서비스 로직 추가
-    this.strategy[key] = authentcate;
+    this.strategy[key] = authenticate;
+    console.log("key, this.strategy[key] : ", key, this.strategy[key]);
   }
   public async login(
     type: string,

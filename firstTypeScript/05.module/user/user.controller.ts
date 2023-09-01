@@ -7,13 +7,14 @@ class UserController {
 
   // 로그인
   // /login/:type으로 요청이 들어왔다면
-  signin() {
+  signin(type: string) {
+    console.log("실행 순서 1 : UserController.signin");
     // req.body에서 유저의 정보를 받아옴(실습 환경에서는 임시 객체 사용)
     const loginParams: UserParams = {
       email: "db@google.com",
       password: "1234",
     };
-    this.userService.login("google", loginParams);
+    this.userService.login(type, loginParams);
   }
   // 회원가입
   // /signup
