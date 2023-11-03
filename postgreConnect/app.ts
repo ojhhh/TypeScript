@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: false }));
 console.log("Connecting to database:", process.env.DATABASE_NAME);
 
 sequelize.sequelize
-  .sync({ force: false })
+  .sync({ force: true })
   .then(() => {
     console.log("connect success");
   })
