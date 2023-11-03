@@ -5,7 +5,7 @@ interface ConnectAttributes {
   cnt: number;
 }
 
-class Connect extends Model<ConnectAttributes> implements ConnectAttributes {
+class Connect extends Model<ConnectAttributes> {
   // ! 는 definitely assigned 마커로 나중에 값이 할당 된다는 것을 의미
   public price!: string;
   public cnt!: number;
