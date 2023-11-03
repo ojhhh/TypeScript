@@ -1,5 +1,7 @@
 import { Sequelize, DataTypes, Model, Association } from "sequelize";
 import Subscriptions_own from "./subscriptions_own";
+import Subscription_application from "./subscription_application";
+import Real_estates from "./real_estates";
 
 // typescirpt는 enum에 관한 지식이 없답니다
 export enum status_enum {
@@ -139,6 +141,12 @@ class Subscriptions extends Model<SubscriptionsAttribute> {
 
   static associate() {
     Subscriptions.hasMany(Subscriptions_own, {
+      foreignKey: "subscriptions_id",
+    });
+    Subscriptions.hasMany(Real_estates, {
+      foreignKey: "subscriptions_id",
+    });
+    Subscriptions.hasMany(Subscription_application, {
       foreignKey: "subscriptions_id",
     });
   }
