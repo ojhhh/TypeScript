@@ -1,7 +1,9 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
 import Subscriptions from "./subscriptions";
+import Real_estates_own from "./real_estates_own";
+
 interface real_estatesAttribute {
-  subscription_id: number;
+  subscriptions_id: number;
   real_estates_name: string;
   currentPrice: number;
   startPrice: number;
@@ -12,7 +14,7 @@ class Real_estates extends Model<real_estatesAttribute> {
   static initModel(sequelize: Sequelize): typeof Real_estates {
     Real_estates.init(
       {
-        subscription_id: {
+        subscriptions_id: {
           type: DataTypes.INTEGER,
           allowNull: false,
         },
@@ -47,6 +49,10 @@ class Real_estates extends Model<real_estatesAttribute> {
   static associate() {
     Real_estates.belongsTo(Subscriptions, {
       foreignKey: "subscriptions_id",
+    });
+    Real_estates.hasMany(Real_estates_own, {
+      sourceKey: "id",
+      foreignKey: "real_estates_id",
     });
   }
 }
