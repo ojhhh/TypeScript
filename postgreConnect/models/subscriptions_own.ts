@@ -1,5 +1,5 @@
-import { Sequelize, DataType, Model, DataTypes } from "sequelize";
-import Subscriptions from "./subscriptions";
+import { Sequelize, DataTypes, Model } from "sequelize";
+import { DB } from "models";
 
 interface ownAttribute {
   user_email: string;
@@ -17,7 +17,7 @@ class Subscriptions_own extends Model<ownAttribute> {
         },
         subscriptions_id: {
           type: DataTypes.INTEGER,
-          defaultValue: 0,
+          allowNull: false,
         },
         amount: {
           type: DataTypes.INTEGER,
@@ -34,8 +34,8 @@ class Subscriptions_own extends Model<ownAttribute> {
     );
     return Subscriptions_own;
   }
-  static associate() {
-    Subscriptions_own.belongsTo(Subscriptions, {
+  static associate(db: DB) {
+    db.Subscriptions_own.belongsTo(db.Subscriptions, {
       foreignKey: "subscriptions_id",
     });
   }

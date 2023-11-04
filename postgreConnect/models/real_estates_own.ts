@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
-import Real_estates from "./real_estates";
+import { DB } from "models";
 
 interface real_estates_ownAttribute {
   user_email: string;
@@ -55,9 +55,10 @@ class Real_estates_own extends Model<real_estates_ownAttribute> {
     );
     return Real_estates_own;
   }
-  static associate() {
-    Real_estates_own.belongsTo(Real_estates, {
-      targetKey: "real_estates_id",
+  static associate(db: DB) {
+    db.Real_estates_own.belongsTo(db.Real_estates, {
+      foreignKey: "real_estates_id",
+      targetKey: "id",
     });
   }
 }

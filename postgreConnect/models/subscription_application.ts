@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
-import Subscriptions from "./subscriptions";
+import { DB } from "models";
 
 interface subscription_appAttribute {
   subsription_id: number;
@@ -35,8 +35,8 @@ class Subscription_application extends Model<subscription_appAttribute> {
     );
     return Subscription_application;
   }
-  static associate() {
-    Subscriptions.belongsTo(Subscription_application, {
+  static associate(db: DB) {
+    db.Subscriptions.belongsTo(db.Subscription_application, {
       foreignKey: "subscriptions_id",
     });
   }

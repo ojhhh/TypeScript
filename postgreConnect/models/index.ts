@@ -13,7 +13,7 @@ import Dividends from "./dividends";
 import Dividend_details from "./dividend_details";
 import Notices from "./notices";
 
-interface DB {
+export interface DB {
   sequelize: Sequelize;
   Connect: typeof Connect;
   Users: typeof Users;
@@ -52,7 +52,10 @@ const db: DB = {
   Notices,
 };
 
+// 테스트용이라 필요없는 애
 Connect.initModel(sequelize);
+//
+
 userInitModel(sequelize);
 Subscriptions.initModel(sequelize);
 Subscriptions_own.initModel(sequelize);
@@ -63,5 +66,11 @@ Dividends.initModel(sequelize);
 Dividend_details.initModel(sequelize);
 Notices.initModel(sequelize);
 Real_estates_own.initModel(sequelize);
+
+Subscriptions.associate(db);
+Real_estates.associate(db);
+Real_estates_own.associate(db);
+Subscriptions_own.associate(db);
+Subscription_application.associate(db);
 
 export default db;

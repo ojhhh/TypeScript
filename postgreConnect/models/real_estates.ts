@@ -1,6 +1,5 @@
 import { Sequelize, DataTypes, Model } from "sequelize";
-import Subscriptions from "./subscriptions";
-import Real_estates_own from "./real_estates_own";
+import { DB } from "models";
 
 interface real_estatesAttribute {
   subscriptions_id: number;
@@ -46,12 +45,11 @@ class Real_estates extends Model<real_estatesAttribute> {
     );
     return Real_estates;
   }
-  static associate() {
-    Real_estates.belongsTo(Subscriptions, {
+  static associate(db: DB) {
+    db.Real_estates.belongsTo(db.Subscriptions, {
       foreignKey: "subscriptions_id",
     });
-    Real_estates.hasMany(Real_estates_own, {
-      sourceKey: "id",
+    db.Real_estates.hasMany(db.Real_estates_own, {
       foreignKey: "real_estates_id",
     });
   }
